@@ -2,53 +2,62 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-  background-color: #FFFFFF;
-  border-top: 1px solid $border-light;
-  padding-top: 48px;
+  background-color: #F4F4F4;
+  color: #3F3F40;
+  width: 100%;
 }
 
 .container {
   @include container;
+  max-width: 1024px;
 }
 
 .mainFooter {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 48px;
+  display: flex;
+  align-items: flex-start;
+  padding: 40px 0;
+  gap: 0;
 
   @include tablet {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
     gap: 32px;
-  }
-
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    padding: 32px 0;
   }
 }
 
 .aboutCol {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  width: 320px;
+  flex-shrink: 0;
+
+  @include tablet {
+    width: 100%;
+  }
+
+  .logoWrapper {
+    margin-bottom: 20px;
+  }
 
   .description {
     font-size: 13px;
-    color: $text-muted;
-    line-height: 1.6;
-    max-width: 280px;
+    font-weight: 300;
+    color: #3F3F40;
+    line-height: 1.5;
+    margin: 0 0 24px 0;
   }
 
   .socialLinks {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-top: 8px;
+    gap: 20px;
 
     .socialIcon {
-      color: $text-muted;
+      color: #5C5C5C;
       transition: color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         color: $primary-color;
@@ -58,55 +67,87 @@
   }
 }
 
+.verticalDivider {
+  width: 1px;
+  height: 140px;
+  background-color: #E1E1E1;
+  margin: 0 48px;
+  flex-shrink: 0;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.linksRow {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: 32px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
 .linkCol {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 
   .colTitle {
     font-size: 16px;
     font-weight: 700;
-    color: $dark-purple;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    color: #3F3F40;
+    margin: 0;
+    letter-spacing: -0.2px;
   }
 
   .linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .linkItem a {
     font-size: 13px;
-    color: $text-muted;
+    font-weight: 400;
+    color: #4E4E4E;
+    text-decoration: none;
     transition: color 0.2s ease;
 
     &:hover {
       color: $primary-color;
-      text-decoration: underline;
     }
   }
 }
 
 .bottomBar {
-  background-color: #F8F8F8;
-  border-top: 1px solid $border-light;
-  padding: 18px 0;
-  text-align: center;
-  font-size: 12px;
-  color: $text-muted;
-  letter-spacing: 0.2px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #EDEDED;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 
   .bottomContent {
     @include container;
-    @include flex-between;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    @include tablet {
-      flex-direction: column;
-      gap: 8px;
-    }
+  .bottomText {
+    font-size: 12px;
+    color: #4E4E4E;
+    text-align: center;
+    font-weight: 400;
   }
 }
 
