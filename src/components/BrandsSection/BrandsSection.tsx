@@ -7,7 +7,7 @@ export const BrandsSection: React.FC = () => {
   return (
     <section className={styles.brandsSection} aria-label="Navegue por marcas">
       <div className={styles.container}>
-        <h2 className={styles.title}>Navigue por marcas</h2>
+        <h2 className={styles.title}>Navegue por marcas</h2>
 
         <div className={styles.brandsGrid}>
           {brands.map((brandId) => (

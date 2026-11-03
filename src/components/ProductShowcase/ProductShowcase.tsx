@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './ProductShowcase.module.scss';
 import type { Product, CategoryTab } from '../../types/product';
 import { ProductCard } from './ProductCard';
-import { ChevronLeftIcon, ChevronRightIcon } from '../Icons/Icons';
 
 interface ProductShowcaseProps {
   title?: string;
@@ -74,7 +73,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     <section className={styles.showcaseSection} aria-label={title}>
       <div className={styles.container}>
         {/* Header */}
-        <div className={styles.headerWrapper}>
+        <div className={`${styles.headerWrapper} ${showViewAll ? styles.hasViewAll : ''}`}>
           <div className={styles.titleArea}>
             <span className={styles.line} aria-hidden="true" />
             <h2 className={styles.title}>{title}</h2>
@@ -138,7 +137,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               disabled={currentIndex === 0}
               aria-label="Produto anterior"
             >
-              <ChevronLeftIcon size={32} />
+              <img src="/icons/arrow-left.png" alt="Anterior" width={40} height={40} />
             </button>
 
             <div className={styles.viewport}>
@@ -166,7 +165,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               disabled={currentIndex >= maxIndex}
               aria-label="Próximo produto"
             >
-              <ChevronRightIcon size={32} />
+              <img src="/icons/arrow-right.png" alt="Próximo" width={40} height={40} />
             </button>
           </div>
         )}
