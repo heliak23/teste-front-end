@@ -84,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0, onSearch }) => {
               aria-label="Campo de busca"
             />
             <button type="submit" className={styles.searchButton} aria-label="Buscar">
-              <SearchIcon size={20} />
+              <SearchIcon size={28} />
             </button>
           </form>
 

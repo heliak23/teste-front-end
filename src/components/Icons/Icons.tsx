@@ -38,15 +38,39 @@ export const CreditCardIcon: React.FC<IconProps> = ({ size = 16, className }) =>
   />
 );
 
-export const SearchIcon: React.FC<IconProps> = ({ size = 22, className }) => (
-  <img
-    src="/icons/search-icon.png"
-    alt="Buscar"
+export const SearchIcon: React.FC<IconProps> = ({
+  size = 28,
+  color = '#9F9F9F',
+  className,
+  ...props
+}) => (
+  <svg
     width={size}
     height={size}
+    viewBox="0 0 28 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     className={className}
-    style={{ display: 'block', objectFit: 'contain' }}
-  />
+    style={{ display: 'block' }}
+    {...props}
+  >
+    <circle
+      cx="11.5"
+      cy="11.5"
+      r="7"
+      stroke={color}
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M16.5 16.5L23.5 23.5"
+      stroke={color}
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
 );
 
 export const BoxIcon: React.FC<IconProps> = ({ size = 24, className }) => (

@@ -7,27 +7,33 @@
   max-width: 1440px;
   margin: 0 auto;
   height: 390px;
+  box-sizing: border-box;
   background-image: url('/hero-banner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 85px 0 55px 85px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   @include tablet {
+    height: auto;
+    min-height: 390px;
+    padding: 60px 20px 40px 40px;
     background-size: cover;
     background-position: center;
   }
 
   @include mobile {
     height: 320px;
+    min-height: 320px;
+    padding: 30px 16px 24px 16px;
     background-size: cover;
     background-position: center;
   }
 
   .heroContent {
-    @include container;
-    max-width: $container-max-width;
+    width: 100%;
   }
 
   .textContent {
@@ -35,16 +41,19 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+
+    @include tablet {
+      height: auto;
+    }
 
     @include mobile {
-      gap: 12px;
+      height: auto;
     }
   }
 
   .title {
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     color: #FFFFFF;
     letter-spacing: -0.5px;
@@ -60,22 +69,34 @@
   }
 
   .subtitle {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 400;
     line-height: 1.2;
     color: #FFFFFF;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 27px;
+    margin-bottom: 54px;
 
     .yellowText {
+      font-size: 32px;
+      font-weight: 700;
       color: #F7CA11;
     }
 
     @include tablet {
-      font-size: 28px;
+      font-size: 24px;
+
+      .yellowText {
+        font-size: 28px;
+      }
     }
 
     @include mobile {
-      font-size: 22px;
+      font-size: 18px;
+
+      .yellowText {
+        font-size: 22px;
+      }
     }
   }
 
@@ -91,7 +112,7 @@
     font-size: 16px;
     font-weight: 700;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 0;
     text-transform: none; // exact text "Ver produto"
     box-shadow: 0 4px 14px rgba(247, 202, 17, 0.35);
 
