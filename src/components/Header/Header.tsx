@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0, onSearch }) => {
                 } ${item.hasCrown ? styles.hasCrown : ''}`}
                 onClick={() => setActiveNav(item.label)}
               >
-                {item.hasCrown && <CrownIcon size={16} color="#3442B5" />}
+                {item.hasCrown && <CrownIcon size={28} color="currentColor" />}
                 {item.label}
               </li>
             ))}

@@ -117,15 +117,30 @@ export const CartIcon: React.FC<IconProps> = ({ size = 24, className }) => (
   />
 );
 
-export const CrownIcon: React.FC<IconProps> = ({ size = 18, className }) => (
-  <img
-    src="/icons/nav-crown.png"
-    alt="Assinatura"
+export const CrownIcon: React.FC<IconProps> = ({
+  size = 28,
+  color = 'currentColor',
+  className,
+  ...props
+}) => (
+  <svg
     width={size}
     height={size}
+    viewBox="0 0 28 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     className={className}
-    style={{ display: 'block', objectFit: 'contain' }}
-  />
+    style={{ display: 'block', flexShrink: 0 }}
+    {...props}
+  >
+    <path
+      d="M4 10L9 13L14 5L19 13L24 10L22 21C18 19.5 10 19.5 6 21L4 10Z"
+      stroke={color}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
 );
 
 export const ChevronLeftIcon: React.FC<IconProps> = ({ size = 24, color = 'currentColor', ...props }) => (
