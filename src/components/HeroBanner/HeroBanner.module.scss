@@ -7,15 +7,9 @@
   max-width: 1440px;
   margin: 0 auto;
   height: 390px;
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.84) 0%,
-      rgba(0, 0, 0, 0.45) 55%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    url('/hero-banner.jpg');
-  background-size: 100% 100%, 126.5% auto;
-  background-position: 0 0, 5% 29%;
+  background-image: url('/hero-banner.jpg');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -54,6 +48,7 @@
     line-height: 1.15;
     color: #FFFFFF;
     letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 
     @include tablet {
       font-size: 36px;
@@ -69,6 +64,7 @@
     font-weight: 700;
     line-height: 1.2;
     color: #FFFFFF;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 
     .yellowText {
       color: #F7CA11;
