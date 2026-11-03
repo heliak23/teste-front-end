@@ -2,64 +2,76 @@
 @use '../../styles/mixins' as *;
 
 .newsletterSection {
-  background-color: $dark-purple;
+  background-color: #271C47;
   color: #FFFFFF;
-  padding: 48px 0;
-  margin-top: 40px;
+  padding: 24px 0;
+  width: 100%;
 
   @include mobile {
-    padding: 36px 0;
+    padding: 24px 0;
   }
 }
 
 .container {
   @include container;
+  max-width: 1024px;
 }
 
 .contentWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 32px;
 
   @include tablet {
     flex-direction: column;
     align-items: flex-start;
-    gap: 28px;
+    gap: 24px;
   }
 }
 
 .textSide {
-  max-width: 460px;
+  max-width: 440px;
 
   .title {
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: #FFFFFF;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
 
     @include tablet {
-      font-size: 26px;
+      font-size: 24px;
     }
 
     @include mobile {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 
   .subtitle {
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 300;
     color: #FFFFFF;
-    opacity: 0.85;
-    line-height: 1.5;
+    opacity: 0.95;
+    line-height: 1.4;
+    margin: 0;
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 }
 
 .formSide {
   flex: 1;
-  max-width: 650px;
+  max-width: 490px;
   width: 100%;
+
+  @include tablet {
+    max-width: 100%;
+  }
 
   .formInputs {
     display: flex;
@@ -68,83 +80,94 @@
 
     @include mobile {
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
   }
 
   .input {
     flex: 1;
-    height: 48px;
-    padding: 0 16px;
+    height: 40px;
+    padding: 0 14px;
     background-color: #FFFFFF;
     border: 1px solid transparent;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
     color: #3F3F40;
     outline: none;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     @include mobile {
       width: 100%;
     }
 
     &::placeholder {
-      color: $text-light;
+      color: #9F9F9F;
+      font-size: 13px;
     }
 
     &:focus {
-      border-color: $yellow-accent;
-      box-shadow: 0 0 0 2px rgba(255, 184, 0, 0.4);
+      border-color: #F7CA11;
+      box-shadow: 0 0 0 2px rgba(247, 202, 17, 0.3);
     }
   }
 
   .submitButton {
     @include button-reset;
-    height: 48px;
-    padding: 0 32px;
-    background-color: $yellow-accent;
-    color: #271B49;
+    height: 40px;
+    width: 124px;
+    background-color: #F7CA11;
+    color: #271C47;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 6px;
     @include flex-center;
     flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 
     @include mobile {
       width: 100%;
     }
 
     &:hover {
-      background-color: $yellow-hover;
-      transform: translateY(-2px);
+      background-color: #E5B800;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 
   .checkboxWrapper {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 14px;
-    font-size: 13px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 400;
     color: #FFFFFF;
-    opacity: 0.9;
     cursor: pointer;
+    user-select: none;
 
     input[type='checkbox'] {
-      width: 16px;
-      height: 16px;
-      accent-color: $yellow-accent;
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      background-color: #FFFFFF;
+      accent-color: #F7CA11;
       cursor: pointer;
+      border-radius: 2px;
     }
   }
 
   .feedbackMessage {
-    margin-top: 12px;
-    padding: 8px 14px;
+    margin-top: 10px;
+    padding: 6px 12px;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
 
     &.success {

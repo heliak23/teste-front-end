@@ -42,7 +42,8 @@ export const Newsletter: React.FC = () => {
           <div className={styles.textSide}>
             <h2 className={styles.title}>Inscreva-se na nossa newsletter</h2>
             <p className={styles.subtitle}>
-              Assine a nossa newsletter e receba as novidades e conteúdos exclusivos da Econverse.
+              Assine a nossa newsletter e receba as novidades e conteúdos exclusivos <br />
+              da Econverse.
             </p>
           </div>
 
