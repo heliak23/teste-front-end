@@ -12,12 +12,25 @@
 
 .container {
   @include container;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include tablet {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include mobile {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(2, minmax(0, 634px));
+  justify-content: center;
+  gap: 12px;
 
   @include tablet {
     grid-template-columns: 1fr;
@@ -27,6 +40,8 @@
 
 .bannerCard {
   position: relative;
+  width: 100%;
+  max-width: 634px;
   height: 350px;
   border-radius: 20px;
   overflow: hidden;

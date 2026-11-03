@@ -4,8 +4,18 @@
 .newsletterSection {
   background-color: #271C47;
   color: #FFFFFF;
-  padding: 24px 0;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 162px;
+  display: flex;
+  align-items: center;
+
+  @include tablet {
+    height: auto;
+    min-height: 162px;
+    padding: 32px 0;
+  }
 
   @include mobile {
     padding: 24px 0;
