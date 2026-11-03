@@ -76,6 +76,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   // Format quantity with 2 digits (e.g. "01")
   const formattedQuantity = quantity < 10 ? `0${quantity}` : `${quantity}`;
 
+  // Cálculo dinâmico do preço do produto de acordo com a quantidade
+  const totalPrice = product.price * quantity;
+
   return (
     <div
       className={styles.modalOverlay}
@@ -94,7 +97,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           onClick={onClose}
           aria-label="Fechar modal"
         >
-          <CloseIcon size={20} />
+          <CloseIcon size={18} />
         </button>
 
         <div className={styles.modalBody}>
@@ -112,12 +115,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             </h2>
 
             <div className={styles.price}>
-              {formatCurrency(product.price)}
+              {formatCurrency(totalPrice)}
             </div>
 
             <p className={styles.description}>
               {product.descriptionShort ||
-                'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.'}
+                'Many desktop publishing packages and web page editors now many desktop publishing'}
             </p>
 
             <a href="#detalhes" className={styles.detailsLink}>
@@ -133,7 +136,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   disabled={quantity <= 1}
                   aria-label="Diminuir quantidade"
                 >
-                  <MinusIcon size={14} />
+                  <MinusIcon size={12} />
                 </button>
                 <span className={styles.qtyNumber}>{formattedQuantity}</span>
                 <button
@@ -142,7 +145,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   onClick={handleIncrease}
                   aria-label="Aumentar quantidade"
                 >
-                  <PlusIcon size={14} />
+                  <PlusIcon size={12} />
                 </button>
               </div>
 
