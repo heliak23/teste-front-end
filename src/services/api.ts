@@ -27,13 +27,11 @@ export async function fetchProducts(): Promise<Product[]> {
 
 /**
  * Formata um valor numérico em Reais (BRL).
- * Se o valor for em centavos (ex: 15000 para R$ 150,00 ou 149990 para R$ 1.499,90),
- * faz a divisão adequada.
+ * Utiliza o valor do campo "price" do JSON de acordo com o produto (ex: 15000 -> R$ 15.000,00).
  */
-export function formatCurrency(cents: number): string {
-  const reais = cents / 100;
+export function formatCurrency(value: number): string {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-  }).format(reais);
+  }).format(value);
 }

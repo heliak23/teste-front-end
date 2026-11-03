@@ -31,8 +31,8 @@
   border-radius: 12px;
   overflow: hidden;
   background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.4) 0%,
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
       rgba(0, 0, 0, 0.8) 100%
     ),
     url('/partner-banner.jpg');
@@ -91,7 +91,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: $yellow-accent;
+    background-color: #F7CA11;
     color: #271B49;
     font-size: 14px;
     font-weight: 700;
@@ -100,10 +100,10 @@
     border-radius: 6px;
     margin-top: 8px;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(247, 202, 17, 0.35);
 
     &:hover {
-      background-color: $yellow-hover;
+      background-color: #E5B800;
       transform: translateY(-2px);
     }
   }

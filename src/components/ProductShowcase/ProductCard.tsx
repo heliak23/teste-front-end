@@ -11,15 +11,14 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
   const [imgSrc, setImgSrc] = useState(product.photo);
 
-  // Price formatting
-  // product.price is in cents (e.g. 149990 = R$ 1.499,90 or 15000 = R$ 150,00)
+  // Preço atual formatado diretamente do campo "price" do JSON (ex: 15000 -> R$ 15.000,00)
   const currentPriceFormatted = formatCurrency(product.price);
 
-  // Calculate a realistic old price (+ 15% discount representation)
-  const oldPriceCents = Math.round(product.price * 1.15);
-  const oldPriceFormatted = formatCurrency(oldPriceCents);
+  // Preço antigo com representação de desconto (+15%)
+  const oldPrice = Math.round(product.price * 1.15);
+  const oldPriceFormatted = formatCurrency(oldPrice);
 
-  // Calculate 2x installments
+  // Cálculo das parcelas em 2x sem juros
   const installmentValue = formatCurrency(Math.round(product.price / 2));
 
   const handleCardClick = () => {
@@ -50,6 +49,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
         <h3 className={styles.productTitle} title={product.productName}>
           {product.productName}
         </h3>
+
+        <p className={styles.productDescription} title={product.descriptionShort}>
+          {product.descriptionShort}
+        </p>
 
         <div className={styles.pricing}>
           <span className={styles.oldPrice}>{oldPriceFormatted}</span>

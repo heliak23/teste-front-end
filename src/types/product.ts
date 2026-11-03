@@ -2,7 +2,7 @@ export interface Product {
   productName: string;
   descriptionShort: string;
   photo: string;
-  price: number; // in cents, e.g. 149990 = R$ 1.499,90
+  price: number; // valor numérico do preço do produto vindo do JSON (ex: 15000 -> R$ 15.000,00)
 }
 
 export interface ApiResponse {
