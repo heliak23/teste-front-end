@@ -10,9 +10,21 @@
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  height: 100%;
+  width: 304px;
+  height: 500px;
+  box-sizing: border-box;
   user-select: none;
   border: 1px solid transparent;
+
+  @media (max-width: 1270px) {
+    width: 100%;
+  }
+
+  @include mobile {
+    height: auto;
+    min-height: 460px;
+    padding: 16px 12px 14px;
+  }
 
   &:hover {
     transform: translateY(-4px);
@@ -22,13 +34,14 @@
 
   .imageWrapper {
     width: 100%;
-    height: 200px;
+    height: 220px;
     @include flex-center;
     margin-bottom: 16px;
     overflow: hidden;
 
     img {
       max-height: 100%;
+      max-width: 100%;
       width: auto;
       object-fit: contain;
       transition: transform 0.3s ease;

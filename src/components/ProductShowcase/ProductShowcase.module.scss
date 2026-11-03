@@ -11,7 +11,15 @@
 }
 
 .container {
-  @include container;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 0 16px;
+  }
 }
 
 // Header & Title
@@ -144,14 +152,13 @@
 // Carousel Container
 .carouselWrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  margin: 0 -20px;
-  padding: 10px 20px;
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 10px 0;
 
   @include mobile {
-    margin: 0 -10px;
-    padding: 10px;
+    padding: 6px 0;
   }
 
   .navArrow {
@@ -160,10 +167,20 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    z-index: 2;
-    flex-shrink: 0;
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     transition: transform 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
+
+    &.prevArrow {
+      left: -48px;
+    }
+
+    &.nextArrow {
+      right: -48px;
+    }
 
     img {
       width: 40px;
@@ -174,12 +191,30 @@
     }
 
     &:hover:not(:disabled) {
-      transform: scale(1.1);
+      transform: translateY(-50%) scale(1.1);
     }
 
     &:disabled {
       opacity: 0.35;
       cursor: not-allowed;
+    }
+
+    @media (max-width: 1380px) {
+      &.prevArrow {
+        left: -16px;
+      }
+      &.nextArrow {
+        right: -16px;
+      }
+    }
+
+    @media (max-width: 1300px) {
+      &.prevArrow {
+        left: 6px;
+      }
+      &.nextArrow {
+        right: 6px;
+      }
     }
 
     @include mobile {
@@ -196,13 +231,15 @@
   .viewport {
     overflow: hidden;
     width: 100%;
-    padding: 10px 4px 20px;
+    max-width: 1270px;
+    padding: 12px 0 24px;
+    margin: 0 auto;
   }
 
   .sliderTrack {
     display: flex;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    gap: 20px;
+    gap: 18px;
 
     @include mobile {
       gap: 12px;
@@ -210,18 +247,26 @@
   }
 
   .slide {
-    flex: 0 0 calc((100% - (3 * 20px)) / 4); // 4 items per page on desktop
+    flex: 0 0 304px;
+    width: 304px;
+    height: 500px;
 
-    @media (max-width: 1100px) {
-      flex: 0 0 calc((100% - (2 * 20px)) / 3); // 3 items
+    @media (max-width: 1270px) {
+      flex: 0 0 calc((100% - (2 * 18px)) / 3);
+      width: auto;
+      height: 500px;
     }
 
     @include tablet {
-      flex: 0 0 calc((100% - 20px) / 2); // 2 items
+      flex: 0 0 calc((100% - 18px) / 2);
+      width: auto;
+      height: auto;
     }
 
     @include mobile {
-      flex: 0 0 85%; // 1 item peek
+      flex: 0 0 85%;
+      width: auto;
+      height: auto;
     }
   }
 }

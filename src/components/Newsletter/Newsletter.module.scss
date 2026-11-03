@@ -24,7 +24,7 @@
 
 .container {
   @include container;
-  max-width: 1024px;
+  max-width: 1280px;
 }
 
 .contentWrapper {
@@ -76,7 +76,7 @@
 
 .formSide {
   flex: 1;
-  max-width: 490px;
+  max-width: 630px;
   width: 100%;
 
   @include tablet {
@@ -125,7 +125,7 @@
   .submitButton {
     @include button-reset;
     height: 40px;
-    width: 124px;
+    width: 132px;
     background-color: #F7CA11;
     color: #271C47;
     font-size: 14px;

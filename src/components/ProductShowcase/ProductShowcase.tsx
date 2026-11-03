@@ -66,7 +66,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   };
 
   // Calculate slide percentage
-  const gap = 20; // 20px gap
+  const gap = 18; // 18px gap
   const stepPercent = 100 / itemsPerPage;
 
   return (
@@ -132,7 +132,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           <div className={styles.carouselWrapper}>
             <button
               type="button"
-              className={styles.navArrow}
+              className={`${styles.navArrow} ${styles.prevArrow}`}
               onClick={handlePrev}
               disabled={currentIndex === 0}
               aria-label="Produto anterior"
@@ -160,7 +160,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
             <button
               type="button"
-              className={styles.navArrow}
+              className={`${styles.navArrow} ${styles.nextArrow}`}
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
               aria-label="Próximo produto"
