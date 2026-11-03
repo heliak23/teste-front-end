@@ -25,9 +25,15 @@
 }
 
 .container {
-  @include container;
-  max-width: 1280px;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+
+  @include tablet {
+    padding: 0 20px;
+  }
 }
 
 .mainFooter {
@@ -47,11 +53,23 @@
 .aboutCol {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 525px;
+  min-width: 525px;
+  max-width: 525px;
+  padding-left: 85px;
+  box-sizing: border-box;
   flex-shrink: 0;
+
+  @media (max-width: 1360px) {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    padding-left: 20px;
+  }
 
   @include tablet {
     width: 100%;
+    padding-left: 0;
   }
 
   .logoWrapper {
@@ -59,8 +77,9 @@
   }
 
   .description {
-    font-size: 13px;
-    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
     color: #3F3F40;
     line-height: 1.5;
     margin: 0 0 28px 0;
@@ -90,8 +109,8 @@
   width: 1px;
   height: 140px;
   background-color: #E1E1E1;
-  margin: 0 64px;
   flex-shrink: 0;
+  margin: 0;
 
   @include tablet {
     display: none;
@@ -100,12 +119,17 @@
 
 .linksRow {
   display: flex;
-  gap: 88px;
   justify-content: flex-start;
+  margin-left: 90px;
+
+  @media (max-width: 1360px) {
+    margin-left: 40px;
+  }
 
   @include tablet {
     flex-wrap: wrap;
     gap: 36px;
+    margin-left: 0;
   }
 
   @include mobile {
@@ -118,6 +142,30 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  &:nth-child(1) {
+    margin-right: 120px;
+
+    @media (max-width: 1360px) {
+      margin-right: 60px;
+    }
+
+    @include tablet {
+      margin-right: 0;
+    }
+  }
+
+  &:nth-child(2) {
+    margin-right: 97px; // Ajustado (-103px) para que a distância medida fique exatamente com 200px
+
+    @media (max-width: 1360px) {
+      margin-right: 60px;
+    }
+
+    @include tablet {
+      margin-right: 0;
+    }
+  }
 
   .colTitle {
     font-size: 16px;
@@ -137,7 +185,8 @@
   }
 
   .linkItem a {
-    font-size: 13px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
     font-weight: 400;
     color: #4E4E4E;
     text-decoration: none;
@@ -175,9 +224,10 @@
   }
 
   .bottomText {
-    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
     color: #4E4E4E;
     text-align: center;
-    font-weight: 400;
   }
 }
