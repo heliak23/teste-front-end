@@ -11,10 +11,11 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onCtaClick }) => {
       <div className={styles.heroContent}>
         <div className={styles.textContent}>
           <h1 className={styles.title}>
-            Venha conhecer nossas promoções
+            Venha conhecer nossas <br />
+            promoções
           </h1>
           <p className={styles.subtitle}>
-            50% Off nos produtos
+            <span className={styles.yellowText}>50% Off</span> nos produtos
           </p>
           <button
             type="button"
@@ -28,4 +29,3 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onCtaClick }) => {
     </section>
   );
 };
-

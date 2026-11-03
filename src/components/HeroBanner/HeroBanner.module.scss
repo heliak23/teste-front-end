@@ -7,8 +7,8 @@
   height: 395px;
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.82) 0%,
-      rgba(0, 0, 0, 0.45) 60%,
+      rgba(0, 0, 0, 0.84) 0%,
+      rgba(0, 0, 0, 0.45) 55%,
       rgba(0, 0, 0, 0.25) 100%
     ),
     url('/hero-banner.jpg');
@@ -59,7 +59,11 @@
     font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
-    color: $yellow-accent;
+    color: #FFFFFF;
+
+    .yellowText {
+      color: #F7CA11;
+    }
 
     @include tablet {
       font-size: 28px;
@@ -75,20 +79,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: $yellow-accent;
+    width: 206px;
+    height: 50px;
+    background-color: #F7CA11;
     color: #271B49;
     font-size: 16px;
     font-weight: 700;
-    padding: 14px 44px;
     border-radius: 5px;
-    margin-top: 8px;
-    text-transform: capitalize;
-    box-shadow: 0 4px 14px rgba(255, 184, 0, 0.35);
+    margin-top: 10px;
+    text-transform: none; // exact text "Ver produto"
+    box-shadow: 0 4px 14px rgba(247, 202, 17, 0.35);
 
     &:hover {
-      background-color: $yellow-hover;
+      background-color: #E5B800;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 184, 0, 0.45);
+      box-shadow: 0 6px 20px rgba(247, 202, 17, 0.45);
     }
 
     &:active {
@@ -96,4 +101,3 @@
     }
   }
 }
-
