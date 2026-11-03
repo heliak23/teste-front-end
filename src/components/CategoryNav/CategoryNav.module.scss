@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.categorySection {
+  padding: 40px 0 20px;
+  background-color: #FFFFFF;
+
+  @include mobile {
+    padding: 24px 0 10px;
+  }
+}
+
+.categoryGrid {
+  @include container;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include tablet {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+}
+
+.categoryItem {
+  @include button-reset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 110px;
+  max-width: 135px;
+  text-align: center;
+  transition: transform 0.2s ease;
+
+  @include mobile {
+    min-width: 90px;
+    gap: 10px;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+
+    .iconCard {
+      box-shadow: $shadow-card;
+      border-color: rgba(52, 66, 181, 0.2);
+    }
+  }
+
+  &.active {
+    .iconCard {
+      background-color: #FFFFFF;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      border-color: rgba(52, 66, 181, 0.25);
+      color: $primary-color;
+    }
+
+    .label {
+      color: $primary-color;
+      font-weight: 700;
+    }
+  }
+
+  .iconCard {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: $bg-category;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: all 0.2s ease;
+
+    @include mobile {
+      padding: 16px;
+    }
+
+    .iconImg {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      user-select: none;
+    }
+  }
+
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4E4E4E;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+}
+

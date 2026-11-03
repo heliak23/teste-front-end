@@ -1,0 +1,241 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  @include flex-center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContainer {
+  position: relative;
+  width: 100%;
+  max-width: 770px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  padding: 40px 48px;
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include tablet {
+    padding: 30px 24px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  @include mobile {
+    padding: 24px 16px;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  @include button-reset;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: #707070;
+  @include flex-center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: #222222;
+    transform: rotate(90deg);
+  }
+}
+
+.modalBody {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.imageCol {
+  flex: 0 0 45%;
+  @include flex-center;
+  height: 320px;
+
+  @include tablet {
+    height: 240px;
+    width: 100%;
+  }
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+.infoCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .productName {
+    font-size: 20px;
+    font-weight: 500;
+    color: #041E50;
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #041E50;
+    letter-spacing: -0.5px;
+  }
+
+  .description {
+    font-size: 12px;
+    font-weight: 400;
+    color: #222222;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  .detailsLink {
+    font-size: 12px;
+    font-weight: 600;
+    color: #041E50;
+    text-decoration: none;
+    display: inline-block;
+    transition: text-decoration 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .actionsRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+  }
+
+  .quantitySelector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px;
+    height: 44px;
+    border: 1px solid #041E50;
+    border-radius: 4px;
+    padding: 0 8px;
+
+    @include mobile {
+      width: 100%;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .qtyButton {
+      @include button-reset;
+      color: #041E50;
+      @include flex-center;
+      width: 28px;
+      height: 28px;
+      font-weight: 700;
+
+      &:hover:not(:disabled) {
+        color: $primary-color;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+
+    .qtyNumber {
+      font-size: 15px;
+      font-weight: 600;
+      color: #041E50;
+      min-width: 24px;
+      text-align: center;
+    }
+  }
+
+  .buyButton {
+    @include button-reset;
+    flex: 1;
+    height: 44px;
+    background-color: $yellow-accent;
+    color: #271B49;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    @include flex-center;
+    box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+
+    &:hover {
+      background-color: $yellow-hover;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .addedFeedback {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2E7D32;
+    background-color: #E8F5E9;
+    padding: 8px 12px;
+    border-radius: 4px;
+    animation: fadeIn 0.2s ease-out;
+  }
+}
+

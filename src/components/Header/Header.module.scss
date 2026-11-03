@@ -1,0 +1,223 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+// Top Bar
+.topBar {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #F0F0F0;
+  padding: 8px 0;
+  font-size: 12px;
+  color: #9F9F9F;
+
+  @include mobile {
+    display: none;
+  }
+
+  .topBarContent {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+    @include tablet {
+      gap: 30px;
+    }
+  }
+
+  .topBarItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9F9F9F;
+
+    strong {
+      color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}
+
+// Main Header
+.mainHeader {
+  padding: 16px 0;
+
+  .mainHeaderContent {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+
+    @include mobile {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .searchContainer {
+    flex: 1;
+    max-width: 654px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      order: 3;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .searchInput {
+      width: 100%;
+      height: 48px;
+      padding: 0 54px 0 24px;
+      background-color: #F6F5F2;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 14px;
+      color: $text-body;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &::placeholder {
+        color: #9F9F9F;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      &:focus {
+        background-color: #FFFFFF;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(52, 66, 181, 0.1);
+      }
+    }
+
+    .searchButton {
+      @include button-reset;
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include mobile {
+      gap: 16px;
+    }
+
+    .actionButton {
+      @include button-reset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 4px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      img {
+        transition: transform 0.2s ease, filter 0.2s ease;
+      }
+
+      &:hover {
+        background-color: rgba(52, 66, 181, 0.05);
+
+        img {
+          transform: scale(1.1);
+          filter: brightness(0.85);
+        }
+      }
+
+      .badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background-color: $yellow-accent;
+        color: #271B49;
+        font-size: 10px;
+        font-weight: 700;
+        min-width: 18px;
+        height: 18px;
+        border-radius: 9px;
+        @include flex-center;
+        padding: 0 4px;
+      }
+    }
+  }
+}
+
+// Navigation Bar
+.navBar {
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navBarContent {
+    @include container;
+  }
+
+  .navList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    min-width: max-content;
+
+    @include tablet {
+      justify-content: flex-start;
+      gap: 24px;
+    }
+  }
+
+  .navItem {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #9F9F9F;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: 700;
+    }
+  }
+}

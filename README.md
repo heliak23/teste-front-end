@@ -1,31 +1,155 @@
 # Teste Econverse: Vaga Desenvolvedor Front-End
 
-### Vem ser #Econverse!
+> Projeto desenvolvido como solução para o teste técnico de Desenvolvedor Front-End da **Econverse**.
 
-Segue abaixo as instruções para a execução do teste.
+---
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail gustavo.cipriano@econverse.com.br com o título **Teste Vaga FrontEnd**
+## 💻 Demonstração & Visão Geral
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+Aplicação e-commerce desenvolvida com **React**, **TypeScript** e **Sass (SCSS)**, reproduzindo com fidelidade pixel a pixel o layout proposto no Figma, incluindo vitrine de produtos consumindo API externa com carrossel/slider interativo e modal responsivo de detalhes do produto.
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+### ✨ Principais Funcionalidades
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+- **Header Completo e Semântico**:
+  - Barra de garantias (Compra 100% segura, Frete grátis, Parcelamento).
+  - Logo Econverse, barra de busca interativa e ícones de navegação (pedidos, favoritos, perfil e carrinho dinâmico).
+  - Menu de navegação por categorias com destaque para ofertas e assinaturas.
+- **Hero Banner Promocional**:
+  - Banner de destaque com chamada para ação ("Ver produto") e rolagem suave até a vitrine.
+- **Navegação por Categorias**:
+  - Seletor de categorias com ícones SVG exclusivos vetorizados, efeitos de hover e estado ativo.
+- **Vitrine de Produtos (Showcase)**:
+  - Consumo dinâmico dos dados da API JSON da Econverse (`produtos.json`).
+  - Carrossel com navegação fluida por setas (anterior/próximo) e suporte a responsividade (desktop, tablet e mobile).
+  - Abas de filtros de categoria (`CELULAR`, `ACESSÓRIOS`, `TABLETS`, etc.).
+  - Cards de produto com formatação de preço em Reais (BRL), cálculo de parcelas sem juros, tag de frete grátis e botão de compra.
+- **Modal Interativo de Produto**:
+  - Abertura ao clicar no card ou no botão "COMPRAR".
+  - Exibição de foto em alta definição, título, preço formatado, descrição curta e link de detalhes.
+  - Seletor de quantidade interativo (`-`, `01`, `+`).
+  - Botão de compra no modal com feedback visual e atualização em tempo real do badge do carrinho.
+  - Acessibilidade: fechamento por tecla `ESC`, clique no backdrop ou botão de fechar `X`, além de bloqueio de rolagem do body.
+- **Banners de Parceiros & Seção de Marcas**:
+  - Banners institucionais com chamadas ("CONFIRA") e carrossel de marcas parceiras.
+- **Newsletter**:
+  - Formulário completo com validação de campos (nome, e-mail e aceite dos termos) e mensagens de feedback.
+- **Rodapé (Footer)**:
+  - Links institucionais, ajuda, termos de uso, redes sociais e copyright.
 
-**Boa sorte! ;)**
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **[React](https://react.dev/)** (v19) - Biblioteca para interfaces reativas baseadas em componentes.
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática para maior robustez e previsibilidade.
+- **[Vite](https://vitejs.dev/)** - Bundler e ambiente de desenvolvimento ultrarrápido.
+- **[Sass / SCSS](https://sass-lang.com/)** - Pré-processador CSS para modularização, variáveis e mixins responsivos.
+- **CSS Modules** - Escopo isolado de estilização por componente, prevenindo vazamentos de estilo.
+- **100% CSS Customizado**: Nenhuma biblioteca de UI pronta utilizada (sem Bootstrap, Tailwind ou UI Frameworks), atendendo rigorosamente ao edital do teste.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+teste-front-end/
+├── public/
+│   ├── foto-iphone.png        # Imagem padrão de fallback dos produtos
+│   ├── hero-banner.jpg        # Imagem de fundo do banner principal
+│   ├── partner-banner.jpg     # Imagem dos banners de parceiros
+│   └── produtos.json          # Fallback local da lista de produtos
+├── src/
+│   ├── assets/                # Ícones SVG personalizados vetorizados
+│   ├── components/
+│   │   ├── BrandsSection/     # Seção "Navigue por marcas"
+│   │   ├── CategoryNav/       # Lista de ícones e categorias
+│   │   ├── Footer/            # Rodapé institucional e links
+│   │   ├── Header/            # Barra superior, busca e navegação
+│   │   ├── HeroBanner/        # Banner principal de promoções
+│   │   ├── Icons/             # Componentes SVG puros (ícones da interface)
+│   │   ├── Newsletter/        # Formulário de captura com validação
+│   │   ├── PartnerBanners/    # Banners duplos de parceiros
+│   │   ├── ProductModal/      # Modal de detalhes e quantidade do produto
+│   │   └── ProductShowcase/   # Vitrine, carrossel e cards de produtos
+│   ├── hooks/
+│   │   └── useProducts.ts     # Hook customizado para carga assíncrona
+│   ├── services/
+│   │   └── api.ts             # Cliente de dados com resiliência e fallbacks
+│   ├── styles/
+│   │   ├── _mixins.scss       # Mixins para responsividade e flexbox
+│   │   ├── _reset.scss        # Reset padronizado de estilos
+│   │   ├── _variables.scss    # Cores, fontes, espaçamentos e breakpoints
+│   │   └── global.scss        # Estilos globais e fontes do projeto
+│   ├── types/
+│   │   └── product.ts         # Definições de tipos e interfaces TypeScript
+│   ├── App.tsx                # Componente raiz da aplicação
+│   ├── App.module.scss        # Estilos do layout base
+│   └── main.tsx               # Ponto de entrada React DOM
+├── index.html                 # Template HTML com meta tags SEO e Google Fonts
+├── package.json               # Dependências e scripts de execução
+├── tsconfig.json              # Configurações do TypeScript
+└── vite.config.ts             # Configuração do Vite com proxy reverso
+```
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
+- Gerenciador de pacotes `npm` ou `yarn`.
+
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/heliak23/teste-front-end.git
+cd teste-front-end
+```
+
+### 2. Instalar as dependências
+```bash
+npm install
+```
+
+### 3. Rodar em ambiente de desenvolvimento
+```bash
+npm run dev
+```
+O servidor será iniciado em: `http://localhost:3000` (ou porta indicada no terminal). Abra o navegador para visualizar a aplicação com Hot Module Replacement (HMR).
+
+### 4. Gerar build de produção
+```bash
+npm run build
+```
+Os arquivos otimizados e minificados serão gerados no diretório `dist/`.
+
+### 5. Pré-visualizar o build de produção
+```bash
+npm run preview
+```
+
+---
+
+## 🌐 Resiliência de Dados e API
+
+A aplicação consome a API oficial fornecida:
+`https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`
+
+Para garantir que o projeto funcione perfeitamente em qualquer ambiente de avaliação (mesmo sem conexão com a internet ou em navegadores com bloqueio restritivo de CORS em requisições de origens diferentes), implementamos uma estratégia em três camadas em [`src/services/api.ts`](src/services/api.ts):
+1. **Proxy Reverso do Vite (`/api/...`)** em ambiente de desenvolvimento local;
+2. **Requisição direta ao endpoint oficial da Econverse**;
+3. **Fallback automático transparente para o arquivo JSON local** em caso de falha de rede ou CORS.
+
+---
+
+## 🔍 SEO e Acessibilidade
+
+- Tags semânticas do HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+- Meta tags de SEO (title, description, keywords, Open Graph para compartilhamento em redes sociais).
+- Atributos `aria-label`, `role="dialog"`, `aria-modal="true"` para garantir acessibilidade a leitores de tela.
+- Fechamento de modal acessível com suporte à tecla `Escape`.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido para o processo seletivo da **Econverse**.

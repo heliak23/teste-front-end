@@ -1,0 +1,112 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background-color: #FFFFFF;
+  border-top: 1px solid $border-light;
+  padding-top: 48px;
+}
+
+.container {
+  @include container;
+}
+
+.mainFooter {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.aboutCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .description {
+    font-size: 13px;
+    color: $text-muted;
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .socialLinks {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+
+    .socialIcon {
+      color: $text-muted;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  .colTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: $dark-purple;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .linkItem a {
+    font-size: 13px;
+    color: $text-muted;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.bottomBar {
+  background-color: #F8F8F8;
+  border-top: 1px solid $border-light;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 12px;
+  color: $text-muted;
+  letter-spacing: 0.2px;
+
+  .bottomContent {
+    @include container;
+    @include flex-between;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
+

@@ -1,0 +1,111 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.partnerSection {
+  padding: 30px 0;
+  background-color: #FFFFFF;
+
+  @include mobile {
+    padding: 20px 0;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.bannerCard {
+  position: relative;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url('/partner-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 36px 32px;
+  box-shadow: $shadow-card;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  @include mobile {
+    height: 280px;
+    padding: 24px 20px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    z-index: 1;
+    max-width: 320px;
+  }
+
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.1;
+
+    @include mobile {
+      font-size: 32px;
+    }
+  }
+
+  .description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.4;
+    opacity: 0.9;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  .button {
+    @include button-reset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $yellow-accent;
+    color: #271B49;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 12px 36px;
+    border-radius: 6px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+
+    &:hover {
+      background-color: $yellow-hover;
+      transform: translateY(-2px);
+    }
+  }
+}
+
