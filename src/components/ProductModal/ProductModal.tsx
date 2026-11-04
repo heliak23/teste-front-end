@@ -97,7 +97,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           onClick={onClose}
           aria-label="Fechar modal"
         >
-          <CloseIcon size={18} />
+          <CloseIcon size={16} />
         </button>
 
         <div className={styles.modalBody}>
