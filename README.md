@@ -116,13 +116,20 @@ npm run dev
 ```
 O servidor será iniciado em: `http://localhost:3000` (ou porta indicada no terminal). Abra o navegador para visualizar a aplicação com Hot Module Replacement (HMR).
 
-### 4. Gerar build de produção
+### 4. Testar e validar o código (Linting & Análise Estática)
+```bash
+npm test
+# ou: npm run lint
+```
+Executa a validação estática de código com o **Oxlint**, assegurando conformidade de regras, tipagem TypeScript e boas práticas do React.
+
+### 5. Compilar / Gerar build de produção
 ```bash
 npm run build
 ```
 Os arquivos otimizados e minificados serão gerados no diretório `dist/`.
 
-### 5. Pré-visualizar o build de produção
+### 6. Pré-visualizar o build de produção
 ```bash
 npm run preview
 ```
