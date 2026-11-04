@@ -3,30 +3,113 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F71963" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- SEO Meta Tags -->
-  <title>Econverse - Teste Front-End</title>
+  <!-- Favicon & Web App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Econverse | As Melhores Ofertas em Tecnologia e Eletrônicos</title>
   <meta name="description"
     content="Econverse - As melhores ofertas em tecnologia, celulares, notebooks e muito mais com frete grátis e parcelamento sem juros." />
-  <meta name="keywords" content="econverse, tecnologia, celular, iphone, ofertas, promoções, e-commerce" />
   <meta name="author" content="Econverse" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://econverse.com.br/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Econverse" />
+  <meta property="og:url" content="https://econverse.com.br/" />
   <meta property="og:title" content="Econverse - As Melhores Ofertas em Tecnologia" />
   <meta property="og:description"
     content="Confira nossas ofertas imperdíveis com até 50% de desconto em tecnologia e eletrônicos." />
-  <meta property="og:image" content="/foto-iphone.png" />
+  <meta property="og:image" content="https://econverse.com.br/foto-iphone.png" />
+  <meta property="og:image:alt" content="Ofertas em tecnologia e smartphones na Econverse" />
 
-  <!-- Google Fonts: Poppins, Outfit & Work Sans -->
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://econverse.com.br/" />
+  <meta name="twitter:title" content="Econverse - As Melhores Ofertas em Tecnologia" />
+  <meta name="twitter:description"
+    content="Confira nossas ofertas imperdíveis com até 50% de desconto em tecnologia e eletrônicos." />
+  <meta name="twitter:image" content="https://econverse.com.br/foto-iphone.png" />
+
+  <!-- Core Web Vitals Optimization: Preload Hero Image & Font Connections -->
+  <link rel="preload" as="image" href="/hero-banner.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+
+  <!-- Structured Data / Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://econverse.com.br/#organization",
+        "name": "Econverse",
+        "url": "https://econverse.com.br/",
+        "logo": "https://econverse.com.br/logo.png",
+        "sameAs": [
+          "https://instagram.com",
+          "https://facebook.com",
+          "https://linkedin.com"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://econverse.com.br/#website",
+        "url": "https://econverse.com.br/",
+        "name": "Econverse",
+        "description": "As melhores ofertas em tecnologia, celulares, notebooks e muito mais com frete grátis e parcelamento sem juros.",
+        "publisher": {
+          "@id": "https://econverse.com.br/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://econverse.com.br/?busca={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://econverse.com.br/#produtos-destaque",
+        "name": "Produtos em Destaque",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Smartphone Celular Apple iPhone 15 Pro Max 256GB Titânio",
+              "image": "https://econverse.com.br/foto-iphone.png",
+              "description": "Smartphone Celular Apple iPhone 15 Pro Max 256GB Titânio com tela Super Retina XDR de 6,7 polegadas.",
+              "brand": {
+                "@type": "Brand",
+                "name": "Apple"
+              },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "BRL",
+                "price": "15000.00",
+                "availability": "https://schema.org/InStock",
+                "url": "https://econverse.com.br/#vitrine-principal"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

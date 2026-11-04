@@ -42,6 +42,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
           alt={product.productName}
           onError={() => setImgSrc('/foto-iphone.png')}
           loading="lazy"
+          width={220}
+          height={220}
         />
       </div>
 

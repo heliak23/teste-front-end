@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://econverse.com.br/sitemap.xml
+

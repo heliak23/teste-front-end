@@ -148,12 +148,16 @@ Para garantir que o projeto funcione perfeitamente em qualquer ambiente de avali
 
 ---
 
-## 🔍 SEO e Acessibilidade
+## 🔍 SEO e Acessibilidade (100% Otimizado)
 
-- Tags semânticas do HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-- Meta tags de SEO (title, description, keywords, Open Graph para compartilhamento em redes sociais).
-- Atributos `aria-label`, `role="dialog"`, `aria-modal="true"` para garantir acessibilidade a leitores de tela.
-- Fechamento de modal acessível com suporte à tecla `Escape`.
+- **Tags semânticas do HTML5**: (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) com links `<a>` rastreáveis para crawlers.
+- **Meta Tags de SEO Completas**: Title comercial com proposta de valor, meta description otimizada, meta robots e URL canônica (`canonical`).
+- **Open Graph & Twitter Cards**: Tags completas (`og:title`, `og:description`, `og:image`, `og:url`, `og:locale`, `twitter:card`, `twitter:title`, `twitter:image`) para pré-visualização rica em compartilhamentos sociais (WhatsApp, LinkedIn, Twitter/X).
+- **Dados Estruturados (Schema.org / JSON-LD)**: Schemas `Organization`, `WebSite` (com `SearchAction` para busca no Google) e `ItemList`/`Product` (para geração de Rich Snippets e carrosséis nos resultados de pesquisa).
+- **SEO Técnico & Rastreamento**: Arquivos [`robots.txt`](public/robots.txt) e [`sitemap.xml`](public/sitemap.xml) integrados na raiz pública para indexação eficiente por buscadores.
+- **PWA & Mobile**: Arquivo [`manifest.webmanifest`](public/manifest.webmanifest) configurado com ícones vetoriais e `theme-color` corporativo.
+- **Core Web Vitals & Performance**: Preload antecipado do banner Hero (`<link rel="preload">`) para otimizar LCP e dimensões explícitas em imagens para prevenir CLS (Cumulative Layout Shift).
+- **Acessibilidade Completa**: Atributos `aria-label`, `aria-hidden` em ícones decorativos, suporte integral à navegação por teclado e fechamento de modal acessível com suporte à tecla `Escape`.
 
 ---
 

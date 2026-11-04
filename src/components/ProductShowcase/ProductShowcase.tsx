@@ -161,7 +161,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               disabled={currentIndex === 0}
               aria-label="Produto anterior"
             >
-              <img src="/icons/arrow-left.png" alt="Anterior" width={40} height={40} />
+              <img src="/icons/arrow-left.png" alt="" aria-hidden="true" width={40} height={40} />
             </button>
 
             <div
@@ -193,7 +193,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               disabled={currentIndex >= maxIndex}
               aria-label="Próximo produto"
             >
-              <img src="/icons/arrow-right.png" alt="Próximo" width={40} height={40} />
+              <img src="/icons/arrow-right.png" alt="" aria-hidden="true" width={40} height={40} />
             </button>
           </div>
         )}

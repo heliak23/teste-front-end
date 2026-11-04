@@ -1,0 +1,22 @@
+{
+  "name": "Econverse - As Melhores Ofertas em Tecnologia",
+  "short_name": "Econverse",
+  "description": "As melhores ofertas em tecnologia, celulares, notebooks e muito mais com frete grátis e parcelamento sem juros.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#F71963",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "140x42",
+      "type": "image/png"
+    }
+  ]
+}
+

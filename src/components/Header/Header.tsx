@@ -23,13 +23,13 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0, onSearch }) => {
   const [activeNav, setActiveNav] = useState('OFERTAS DO DIA');
 
   const navItems = [
-    { label: 'TODAS CATEGORIAS' },
-    { label: 'SUPERMERCADO' },
-    { label: 'LIVROS' },
-    { label: 'MODA' },
-    { label: 'LANÇAMENTOS' },
-    { label: 'OFERTAS DO DIA' },
-    { label: 'ASSINATURA', hasCrown: true },
+    { label: 'TODAS CATEGORIAS', href: '#vitrine-principal' },
+    { label: 'SUPERMERCADO', href: '#vitrine-principal' },
+    { label: 'LIVROS', href: '#vitrine-principal' },
+    { label: 'MODA', href: '#vitrine-principal' },
+    { label: 'LANÇAMENTOS', href: '#vitrine-principal' },
+    { label: 'OFERTAS DO DIA', href: '#vitrine-principal' },
+    { label: 'ASSINATURA', href: '#vitrine-principal', hasCrown: true },
   ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -116,10 +116,22 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0, onSearch }) => {
                 className={`${styles.navItem} ${
                   activeNav === item.label ? styles.active : ''
                 } ${item.hasCrown ? styles.hasCrown : ''}`}
-                onClick={() => setActiveNav(item.label)}
               >
-                {item.hasCrown && <CrownIcon size={28} color="currentColor" />}
-                {item.label}
+                <a
+                  href={item.href}
+                  className={styles.navLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveNav(item.label);
+                    const el = document.querySelector(item.href);
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  {item.hasCrown && <CrownIcon size={28} color="currentColor" />}
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
