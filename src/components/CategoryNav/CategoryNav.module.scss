@@ -27,6 +27,12 @@
     display: none;
   }
 
+  @media (max-width: 1160px) {
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 16px 20px;
+  }
+
   @include tablet {
     justify-content: flex-start;
     gap: 20px;

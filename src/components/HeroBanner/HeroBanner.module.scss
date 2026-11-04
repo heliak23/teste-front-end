@@ -93,6 +93,8 @@
 
     @include mobile {
       font-size: 18px;
+      margin-top: 14px;
+      margin-bottom: 24px;
 
       .yellowText {
         font-size: 22px;
@@ -115,6 +117,12 @@
     margin-top: 0;
     text-transform: none; // exact text "Ver produto"
     box-shadow: 0 4px 14px rgba(247, 202, 17, 0.35);
+
+    @include mobile {
+      width: 170px;
+      height: 44px;
+      font-size: 14px;
+    }
 
     &:hover {
       background-color: #E5B800;

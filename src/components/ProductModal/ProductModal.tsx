@@ -17,17 +17,17 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   onClose,
   onAddToCart,
 }) => {
+  const [prevProduct, setPrevProduct] = useState(product);
   const [quantity, setQuantity] = useState(1);
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState(product?.photo || '');
   const [showFeedback, setShowFeedback] = useState(false);
 
-  useEffect(() => {
-    if (product) {
-      setImgSrc(product.photo);
-      setQuantity(1);
-      setShowFeedback(false);
-    }
-  }, [product]);
+  if (product !== prevProduct) {
+    setPrevProduct(product);
+    setImgSrc(product?.photo || '');
+    setQuantity(1);
+    setShowFeedback(false);
+  }
 
   // Lock scroll when modal is open
   useEffect(() => {

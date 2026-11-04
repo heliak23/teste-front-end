@@ -15,6 +15,11 @@
   padding-left: 0;
   padding-right: 0;
 
+  @media (max-width: 1280px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   @include tablet {
     padding-left: 20px;
     padding-right: 20px;
@@ -120,6 +125,13 @@
     text-transform: uppercase;
     box-shadow: 0 4px 12px rgba(247, 202, 17, 0.35);
     transition: background-color 0.2s ease, transform 0.2s ease;
+
+    @include mobile {
+      width: 120px;
+      height: 40px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
 
     &:hover {
       background-color: #E5B800;

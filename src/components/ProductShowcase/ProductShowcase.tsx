@@ -25,6 +25,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   const [activeTab, setActiveTab] = useState<CategoryTab>('CELULAR');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const tabs: CategoryTab[] = [
     'CELULAR',
@@ -39,21 +40,27 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
+      let newItemsPerPage = 4;
       if (width < 480) {
-        setItemsPerPage(1);
+        newItemsPerPage = 1;
       } else if (width < 768) {
-        setItemsPerPage(2);
+        newItemsPerPage = 2;
       } else if (width < 1100) {
-        setItemsPerPage(3);
+        newItemsPerPage = 3;
       } else {
-        setItemsPerPage(4);
+        newItemsPerPage = 4;
       }
+      setItemsPerPage(newItemsPerPage);
+      setCurrentIndex((prev) => {
+        const newMax = Math.max(0, products.length - newItemsPerPage);
+        return Math.min(prev, newMax);
+      });
     };
 
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [products.length]);
 
   const maxIndex = Math.max(0, products.length - itemsPerPage);
 
@@ -63,6 +70,23 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
   const handleNext = () => {
     setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (diff > 45) {
+      handleNext();
+    } else if (diff < -45) {
+      handlePrev();
+    }
+    setTouchStartX(null);
   };
 
   // Calculate slide percentage
@@ -140,7 +164,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               <img src="/icons/arrow-left.png" alt="Anterior" width={40} height={40} />
             </button>
 
-            <div className={styles.viewport}>
+            <div
+              className={styles.viewport}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className={styles.sliderTrack}
                 style={{

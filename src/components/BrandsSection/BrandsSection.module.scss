@@ -43,6 +43,12 @@
   max-width: 1223px;
   margin: 0 auto;
 
+  @media (max-width: 1240px) {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   @include tablet {
     gap: 20px;
     flex-wrap: wrap;
@@ -75,6 +81,12 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 
+  @media (max-width: 1240px) {
+    width: 160px;
+    height: 160px;
+    padding: 18px;
+  }
+
   @include tablet {
     width: 130px;
     height: 130px;
@@ -82,9 +94,14 @@
   }
 
   @include mobile {
-    width: 100px;
-    height: 100px;
-    padding: 12px;
+    width: 96px;
+    height: 96px;
+    padding: 10px;
+
+    .brandLogoImg {
+      width: 70px;
+      height: auto;
+    }
   }
 
   &:hover {

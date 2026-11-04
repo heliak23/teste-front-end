@@ -11,6 +11,10 @@
   flex-direction: column;
   box-sizing: border-box;
 
+  @media (max-width: 1024px) {
+    height: auto;
+  }
+
   @include tablet {
     height: auto;
   }
@@ -42,8 +46,13 @@
     gap: 120px;
     padding: 0 20px;
 
+    @media (max-width: 1024px) {
+      gap: 40px;
+    }
+
     @include tablet {
-      gap: 30px;
+      gap: 24px;
+      font-size: 11px;
     }
   }
 
@@ -71,6 +80,13 @@
   align-items: center;
   padding: 0;
 
+  @media (max-width: 1024px) {
+    height: auto;
+    min-height: 72px;
+    max-height: none;
+    padding: 12px 0;
+  }
+
   @include tablet {
     height: auto;
     min-height: 72px;
@@ -86,6 +102,11 @@
     justify-content: space-between;
     gap: 28px;
     padding: 0 4px;
+
+    @media (max-width: 1024px) {
+      padding: 0 20px;
+      gap: 20px;
+    }
 
     @include tablet {
       padding: 0 20px;
@@ -112,15 +133,22 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 1024px) {
+      width: 100%;
+      max-width: 100%;
+      flex: 1;
+    }
+
     @include tablet {
       width: 100%;
-      max-width: 630px;
+      max-width: 100%;
     }
 
     @include mobile {
       order: 3;
       width: 100%;
       max-width: 100%;
+      margin-top: 4px;
     }
 
     .searchInput {
@@ -173,8 +201,13 @@
     align-items: center;
     gap: 32px;
 
+    @media (max-width: 1024px) {
+      gap: 20px;
+    }
+
     @include mobile {
       gap: 16px;
+      margin-left: auto;
     }
 
     .actionButton {
@@ -235,6 +268,12 @@
     display: none;
   }
 
+  @media (max-width: 1024px) {
+    height: auto;
+    min-height: 40px;
+    max-height: none;
+  }
+
   @include tablet {
     height: auto;
     min-height: 40px;
@@ -257,6 +296,12 @@
     padding: 0 60px;
     margin: 0;
     min-width: max-content;
+
+    @media (max-width: 1024px) {
+      justify-content: flex-start;
+      gap: 24px;
+      padding: 10px 20px;
+    }
 
     @include tablet {
       justify-content: flex-start;
